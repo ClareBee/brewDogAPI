@@ -18,6 +18,10 @@ a {
   font-size: 45px;
   color: black;
 }
+a:hover{
+  background-color: white;
+  border-radius: 10px;
+}
 p{
   font-size: 45px;
   font-style: italic;
