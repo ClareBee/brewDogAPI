@@ -75,15 +75,28 @@ var createImage = function(beer){
   return img;
 }
 var populateList = function(beers){
+  var select = document.getElementById('beer-list');
   beers.forEach(function(beer, index){
-      var beerName = createBeerName(beer);
-      var tag = createTagLine(beer);
-      var pairings = createPairings(beer);
-      var ingredients = createIngredients(beer);
-      var image = createImage(beer);
-      appendElements(beerName, tag, pairings, ingredients, image);
-  });
+  var option = document.createElement('option');
+  option.classList.add("beer");
+  option.innerText = beer.name;
+  option.value = index;
+  select.appendChild(option);
+});
+var select = document.querySelector("select");
+select.addEventListener("change", function(){
+  this.handleSelection(beers);
+}.bind(this));
 }
+  // beers.forEach(function(beer, index){
+  //     var beerName = createBeerName(beer);
+  //     var tag = createTagLine(beer);
+  //     var pairings = createPairings(beer);
+  //     var ingredients = createIngredients(beer);
+  //     var image = createImage(beer);
+  //     appendElements(beerName, tag, pairings, ingredients, image);
+  // });
+
 
 var createTagLine = function(beer){
   var tagLine = document.createElement('li');
