@@ -88,17 +88,19 @@ var ingredientLists = function(ingredients){
   return selection;
 }
 
-
 var createBeerName = function(beer){
   var beerName = document.getElementById("titleForBeer");
   beerName.innerText = beer.name;
+  beerName.style.backgroundColor = "#00afdb";
   return beerName;
 }
 
 var createImage = function(beer){
   var img = document.getElementById("imageofBeer");
   var caption = document.getElementById("caption");
-  caption.innerText = "Hover over the image for a description of the beer you've chosen."
+  caption.innerText = "Hover over for a description";
+  caption.style.border = "solid 5px #00afdb";
+  caption.style.padding = "10px";
   img.src = beer.image_url;
   img.title = beer.description;
 }
