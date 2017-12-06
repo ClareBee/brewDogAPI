@@ -10,12 +10,12 @@
   <body>
     <main>
       <div class="container">
-        <img id="logo" src="public/images/logo.jpg">
+        <img id="logo" src="/images/logo.jpg">
         <a href="https://www.facebook.com/BrewDogOfficial/">
-          <img id="facebooklogo" src="public/images/facebook.png">
+          <img id="facebooklogo" src="/images/facebook.png">
         </a>
         <a href="https://twitter.com/BrewDog?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor">
-          <img id="twitterlogo" src="public/images/twitter.png">
+          <img id="twitterlogo" src="/images/twitter.png">
         </a>
         <a href="https://www.brewdog.com/">BrewDogOfficial</a>
       </div>
@@ -24,20 +24,22 @@
           <option>Select a beer</option>
         </select>
       </div>
-      <div class="container" id="details">
-        <h1 id="titleForBeer"></h1>
-        <h2 id="subtitleForBeer"></h2>
-        <h2 id="labelForFoodPairings"></h2>
-        <ul id="foodPairings"></ul>
-        <h2 id="labelForIngredients"></h2>
-        <ul id="ingredients">
-          <li id="malts"></li>
-          <li id="hops"></li>
-          <li id="yeast"></li>
-        </ul>
-      </div>
-      <div class="container">
-        <img id="imageofBeer">
+      <div class="details">
+        <div class="partOne">
+          <h1 id="titleForBeer"></h1>
+          <p id="subtitleForBeer"></p>
+          <h2 id="labelForFoodPairings"></h2>
+          <ul id="foodPairings"></ul>
+          <h2 id="labelForIngredients"></h2>
+          <ul id="ingredients">
+            <li id="malts"></li>
+            <li id="hops"></li>
+            <li id="yeast"></li>
+          </ul>
+        </div>
+        <div class="partTwo">
+          <img id="imageofBeer">
+        </div>
       </div>
   </main>
 </body>

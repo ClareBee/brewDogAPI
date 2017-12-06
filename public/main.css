@@ -3,20 +3,35 @@ body {
   font-family: 'Archivo Black', sans-serif;
 }
 
-#details {
-  background-color: white;
+h1 {
+  font-size: 4em;
 }
+p {
+  font-size: 45px;
+  font-style: italic;
+  color: #00afdb;
+}
+
 
 #label {
   color: #00afdb;
   font-weight: bold;
 }
-.container{
+.container {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   flex-wrap: wrap;
   margin-top: 10px;
+}
+.details {
+  width: 95%;
+  height: 700px;
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 20px;
 }
 
 .beers{
@@ -30,16 +45,20 @@ li {
 #beer-list {
   font-family: 'Archivo Black', sans-serif;
   font-size: 40px;
+  margin: 40px;
 }
 
 /*images */
 #imageofBeer {
   width: 150px;
-  border: 3px solid black;
 }
 
 #logo {
   width: 75%;
   border-radius: 10px;
   margin-bottom: 50px;
+}
+
+#facebooklogo, #twitterlogo {
+  width: 80px;
 }

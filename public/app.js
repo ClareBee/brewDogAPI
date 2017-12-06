@@ -17,6 +17,7 @@ var requestComplete = function(){
   var beers = JSON.parse(jsonString);
   populateList(beers);
 }
+
 var populateList = function(beers){
   var select = document.getElementById("beer-list");
 
@@ -27,6 +28,7 @@ var populateList = function(beers){
     option.value = index;
     select.appendChild(option);
   });
+
   var selected = document.querySelector("select");
   selected.addEventListener("change", function(){
     this.handleSelection(beers);
@@ -94,8 +96,8 @@ var createBeerName = function(beer){
 var createImage = function(beer){
   var img = document.getElementById("imageofBeer");
   img.src = beer.image_url;
+  img.title = beer.description;
 }
-
 
 var createTagLine = function(beer){
   var tagLine = document.getElementById("subtitleForBeer");
