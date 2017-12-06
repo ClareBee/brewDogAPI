@@ -97,12 +97,27 @@ var createBeerName = function(beer){
 
 var createImage = function(beer){
   var img = document.getElementById("imageofBeer");
-  var caption = document.getElementById("caption");
-  caption.innerText = "Hover over for a description";
-  caption.style.border = "solid 5px #00afdb";
-  caption.style.padding = "10px";
+  var button = document.getElementById("popupButton");
+  button.innerText = "Show details";
+  button.style.backgroundColor = "#00afdb";
   img.src = beer.image_url;
   img.title = beer.description;
+  popup(beer);
+}
+
+var popup = function(beer){
+  var popup = document.getElementById("popUp");
+  var btn = document.getElementById("popupButton");
+  var span = document.getElementsByClassName("close")[0];
+  btn.onclick = function() {
+    popup.style.display = "block";
+    var content = document.getElementById("popupContent");
+    content.innerText = beer.description;
+    content.style.fontSize = "12px";
+  };
+  span.onclick = function() {
+    popup.style.display = "none";
+  };
 }
 
 var createTagLine = function(beer){
