@@ -32,6 +32,7 @@ var populateList = function(beers){
     this.handleSelection(beers);
   }.bind(this));
 }
+
 var handleSelection = function(beers){
   var chosen = document.querySelector('select');
   var beer = beers[chosen.value];
@@ -40,7 +41,7 @@ var handleSelection = function(beers){
   var pairings = createPairings(beer);
   var ingredients = createIngredients(beer);
   var image = createImage(beer);
-  appendElements(beerName, tag, pairings, ingredients, image);
+  appendElements(ingredients);
 }
 
 var createIngredients = function(beer){
@@ -94,7 +95,6 @@ var createBeerName = function(beer){
 var createImage = function(beer){
   var img = document.getElementById('imageofBeer');
   img.src = beer.image_url;
-  return img;
 }
 
 
@@ -105,19 +105,17 @@ var createTagLine = function(beer){
 }
 
 var createPairings = function(beer){
-  var foodPairings = document.createElement('li');
-  var pairings = beer.food_pairing;
-  foodPairings.innerText = "Food Pairings: " + pairings;
-  return foodPairings;
+  var foodPairings = document.getElementById('foodPairings');
+  for(each of beer.food_pairing){
+    var li = document.createElement('li');
+    li.innerText = each;
+    foodPairings.appendChild(li);
+  }
 }
 
-var appendElements = function(beer, tag, pairings, ingredients, image){
-    var list = document.getElementById('beer-details');
-    list.appendChild(beer);
-    beer.appendChild(tag);
-    beer.appendChild(pairings);
-    beer.appendChild(ingredients);
-    beer.appendChild(image);
+var appendElements = function(ingredients){
+    var list = document.getElementById('ingredients');
+    list.appendChild(ingredients);
 }
 
 
