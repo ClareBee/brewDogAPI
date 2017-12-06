@@ -44,19 +44,18 @@ var ingredientList = function(beer){
       maltSelection.push(" " + malt.name);
     }
   }
-
+  ingredients.push(maltSelection);
   for(hop of beer.ingredients.hops){
     if((beer.ingredients.hops.length > 0) && (!hopSelection.includes(hop.name))){
       hopSelection.push(" " + hop.name);
     }
   }
+  ingredients.push(hopSelection);
   for(yeast of beer.ingredients.yeast){
     if(beer.ingredients.length > 0 && !yeastSelection.includes(yeast.name)){
       yeastSelection.push(" " + yeast.name);
     }
   }
-  ingredients.push(maltSelection);
-  ingredients.push(hopSelection);
   ingredients.push(yeastSelection);
   return ingredients;
 }
