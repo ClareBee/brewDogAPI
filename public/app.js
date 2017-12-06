@@ -45,46 +45,35 @@ var handleSelection = function(beers){
 }
 
 var createIngredients = function(beer){
+  var label = document.getElementById("labelForIngredients");
+  label.innerText = "Ingredients:"
   var ingredients = document.createElement('ul');
-  var ingreds = this.ingredientList(beer);
-  ingredients.innerText = "Ingredients";
+  var maltList = this.ingredientLists(beer.ingredients.malt);
+  var hopList = this.ingredientLists(beer.ingredients.hops);
+  ingredients.innerText = "";
   var malts = document.createElement('li');
   var hops = document.createElement('li');
   var yeast = document.createElement('li');
-  malts.innerText = "Malts: " + ingreds[0];
-  hops.innerText = "Hops: " + ingreds[1];
-  yeast.innerText = "Yeast: " + ingreds[2];
+  malts.innerText = "Malts: " + maltList;
+  hops.innerText = "Hops: " + hopList;
+  yeast.innerText = "Yeast: " + beer.ingredients.yeast;
   ingredients.appendChild(malts);
   ingredients.appendChild(hops);
   ingredients.appendChild(yeast);
   return ingredients;
 }
 
-var ingredientList = function(beer){
-  var maltSelection =[];
-  var hopSelection = [];
-  var yeastSelection = [];
-  var ingredients = [];
-  for(malt of beer.ingredients.malt){
-    if((beer.ingredients.malt.length > 0) && (!maltSelection.includes(malt.name))){
-      maltSelection.push(" " + malt.name);
+var ingredientLists = function(ingredients){
+  var selection = [];
+  for(each of ingredients){
+    if((ingredients.length > 0) && (!selection.includes(" " + each.name))){
+      selection.push(" " + each.name);
     }
   }
-  ingredients.push(maltSelection);
-  for(hop of beer.ingredients.hops){
-    if((beer.ingredients.hops.length > 0) && (!hopSelection.includes(hop.name))){
-      hopSelection.push(" " + hop.name);
-    }
-  }
-  ingredients.push(hopSelection);
-  for(yeast of beer.ingredients.yeast){
-    if(beer.ingredients.length > 0 && !yeastSelection.includes(yeast.name)){
-      yeastSelection.push(" " + yeast.name);
-    }
-  }
-  ingredients.push(yeastSelection);
-  return ingredients;
+  return selection;
 }
+
+
 
 var createBeerName = function(beer){
   var beerName = document.getElementById("titleForBeer");
@@ -105,6 +94,8 @@ var createTagLine = function(beer){
 }
 
 var createPairings = function(beer){
+  var label = document.getElementById('labelForFoodPairings');
+  label.innerText = "Food Pairings:"
   var foodPairings = document.getElementById('foodPairings');
   for(each of beer.food_pairing){
     var li = document.createElement('li');
