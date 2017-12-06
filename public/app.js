@@ -18,18 +18,35 @@ var requestComplete = function(){
   populateList(beers);
 }
 
-var ingredients = function(beer){
+var createIngredients = function(beer){
+  var ingredients = document.createElement('ul');
+  var ingreds = this.ingredientList(beer);
+  ingredients.innerText = "Ingredients";
+  var malts = document.createElement('li');
+  var hops = document.createElement('li');
+  var yeast = document.createElement('li');
+  malts.innerText = "Malts: " + ingreds[0];
+  hops.innerText = "Hops: " + ingreds[1];
+  yeast.innerText = "Yeast: " + ingreds[2];
+  ingredients.appendChild(malts);
+  ingredients.appendChild(hops);
+  ingredients.appendChild(yeast);
+  return ingredients;
+}
+
+var ingredientList = function(beer){
   var maltSelection =[];
   var hopSelection = [];
   var yeastSelection = [];
   var ingredients = [];
   for(malt of beer.ingredients.malt){
-    if(beer.ingredients.malt.length > 0 && !maltSelection.includes(malt.name)){
-    maltSelection.push(" " + malt.name);
+    if((beer.ingredients.malt.length > 0) && (!maltSelection.includes(malt.name))){
+      maltSelection.push(" " + malt.name);
     }
   }
+
   for(hop of beer.ingredients.hops){
-    if(beer.ingredients.hops.length > 0 && !hopSelection.includes(hop.name)){
+    if((beer.ingredients.hops.length > 0) && (!hopSelection.includes(hop.name))){
       hopSelection.push(" " + hop.name);
     }
   }
@@ -45,43 +62,50 @@ var ingredients = function(beer){
 }
 
 
+
+var createBeerName = function(beer){
+  var beerName = document.createElement('ul');
+  beerName.innerText = beer.name;
+  beerName.innerText;
+  return beerName;
+}
+
+var createImage = function(beer){
+  var img = document.createElement('img');
+  img.src = beer.image_url;
+  return img;
+}
 var populateList = function(beers){
   beers.forEach(function(beer, index){
-      var beerName = document.createElement('ul');
-      var tagLine = document.createElement('li');
-      var foodPairings = document.createElement('li');
-      var ingredients = document.createElement('ul');
-      var malts = document.createElement('li');
-      var hops = document.createElement('li');
-      var yeast = document.createElement('li');
-      var img = document.createElement('img');
-      beerName.innerText = beer.name;
-      tagLine.innerText = beer.tagline;
-      var pairings = beer.food_pairing.join(', ');
-      foodPairings.innerText = "Food Pairings: " + pairings;
-
-      var ingreds = this.ingredients(beer);
-      ingredients.innerText = "Ingredients";
-      malts.innerText = "Malts: " + ingreds[0];
-      hops.innerText = "Hops: " + ingreds[1];
-      yeast.innerText = "Yeast: " + ingreds[2];
-      img.src = beer.image_url;
-      beerName.value = index;
-      appendElements(beerName, tagLine, foodPairings, ingredients, malts, hops, yeast, img);
-
+      var beerName = createBeerName(beer);
+      var tag = createTagLine(beer);
+      var pairings = createPairings(beer);
+      var ingredients = createIngredients(beer);
+      var image = createImage(beer);
+      appendElements(beerName, tag, pairings, ingredients, image);
   });
 }
 
-var appendElements = function(beerName, tagLine, foodPairings, ingredients, malts, hops, yeast, img){
+var createTagLine = function(beer){
+  var tagLine = document.createElement('li');
+  tagLine.innerText = beer.tagline;
+  return tagLine;
+}
+
+var createPairings = function(beer){
+  var foodPairings = document.createElement('li');
+  var pairings = beer.food_pairing;
+  foodPairings.innerText = "Food Pairings: " + pairings;
+  return foodPairings;
+}
+
+var appendElements = function(beer, tag, pairings, ingredients, image){
     var list = document.getElementById('beer-list');
-    list.appendChild(beerName);
-    beerName.appendChild(tagLine);
-    beerName.appendChild(foodPairings);
-    beerName.appendChild(ingredients);
-    ingredients.appendChild(malts);
-    ingredients.appendChild(hops);
-    ingredients.appendChild(yeast);
-    beerName.appendChild(img);
+    list.appendChild(beer);
+    beer.appendChild(tag);
+    beer.appendChild(pairings);
+    beer.appendChild(ingredients);
+    beer.appendChild(image);
 }
 
 
