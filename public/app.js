@@ -106,15 +106,18 @@ var createImage = function(beer){
 }
 
 var popup = function(beer){
+  var div = document.getElementById("partTwo");
   var popup = document.getElementById("popUp");
   var btn = document.getElementById("popupButton");
   var span = document.getElementsByClassName("close")[0];
+  btn.addEventListener('click', onclick);
+  span.addEventListener('click', onclick);
   btn.onclick = function() {
     popup.style.display = "block";
     var content = document.getElementById("popupContent");
     content.innerText = beer.description;
     content.style.fontSize = "12px";
-  };
+  }.bind(div);
   span.onclick = function() {
     popup.style.display = "none";
   };

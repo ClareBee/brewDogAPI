@@ -110,18 +110,25 @@ figure:hover {
 }
 
 .modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
+    display: none; /* default hidden */
+    position: static; /* static doesn't popup  anywhere else whereas fixed and absolute do */
+    z-index: 2; /* Sit on top */
     left: 0;
     top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
+    width: 170px;
+    height: 500px;
     overflow: auto; /* Enable scroll if needed */
     background-color: rgb(0,0,0); /* Fallback color */
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
 
+:not(.modal:hover){
+  display: none;
+}
+
+:not(.modal:focus){
+  display: none;
+}
 /* popup details */
 .modal-content {
     background-color: white;
@@ -130,6 +137,7 @@ figure:hover {
     border: 1px solid black;
     width: 80%;
 }
+
 
 /* popup Close Button */
 .close {
