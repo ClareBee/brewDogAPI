@@ -7,6 +7,10 @@ body {
   background-color: white;
 }
 
+#label {
+  color: #00afdb;
+  font-weight: bold;
+}
 .container{
   display: flex;
   align-items: center;
@@ -31,6 +35,7 @@ li {
 /*images */
 #imageofBeer {
   width: 150px;
+  border: 3px solid black;
 }
 
 #logo {
