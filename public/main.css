@@ -71,6 +71,9 @@ li {
   padding: 5px;
 }
 
+button {
+  visibility: hidden;
+}
 
 #beer-list {
   font-family: 'Archivo Black', sans-serif;
