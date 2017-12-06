@@ -97,6 +97,8 @@ var createBeerName = function(beer){
 
 var createImage = function(beer){
   var img = document.getElementById("imageofBeer");
+  var caption = document.getElementById("caption");
+  caption.innerText = "Hover over the image for a description of the beer you've chosen."
   img.src = beer.image_url;
   img.title = beer.description;
 }
