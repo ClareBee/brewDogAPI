@@ -1,16 +1,36 @@
-main{
-  width: 300px;
-  margin: 0 auto;
+body {
+  background-color: #00afdb;
+  font-family: 'Archivo Black', sans-serif;
 }
 
-input{
-  padding: 10px;
-  border-radius: 5px;
-  width: 400px;
-  font-size: 22px;
-  margin: 10px;
+.container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 10px;
 }
 
 .beers{
   padding: 5px;
+}
+
+li {
+  list-style: none;
+}
+
+#beer-list {
+  font-family: 'Archivo Black', sans-serif;
+  font-size: 40px;
+}
+
+/*images */
+#imageofBeer {
+  width: 150px;
+}
+
+#logo {
+  width: 75%;
+  border-radius: 10px;
+  margin-bottom: 50px;
 }

@@ -34,6 +34,7 @@ var populateList = function(beers){
 }
 
 var handleSelection = function(beers){
+  clearList();
   var chosen = document.querySelector('select');
   var beer = beers[chosen.value];
   var beerName = createBeerName(beer);
@@ -41,26 +42,36 @@ var handleSelection = function(beers){
   var pairings = createPairings(beer);
   var ingredients = createIngredients(beer);
   var image = createImage(beer);
-  appendElements(ingredients);
+}
+
+var clearList = function(){
+  var foodPairings = document.getElementById('foodPairings');
+  foodPairings.innerHTML = " ";
 }
 
 var createIngredients = function(beer){
   var label = document.getElementById("labelForIngredients");
   label.innerText = "Ingredients:"
-  var ingredients = document.createElement('ul');
-  var maltList = this.ingredientLists(beer.ingredients.malt);
+  createMaltList(beer);
+  createHopList(beer);
+  createYeastList(beer);
+}
+
+var createMaltList = function(beer){
+    var maltList = this.ingredientLists(beer.ingredients.malt);
+    var malts = document.getElementById('malts');
+    malts.innerText = "Malts: " + maltList;
+}
+
+var createHopList = function(beer){
   var hopList = this.ingredientLists(beer.ingredients.hops);
-  ingredients.innerText = "";
-  var malts = document.createElement('li');
-  var hops = document.createElement('li');
-  var yeast = document.createElement('li');
-  malts.innerText = "Malts: " + maltList;
+  var hops = document.getElementById('hops');
   hops.innerText = "Hops: " + hopList;
+}
+
+var createYeastList = function(beer){
+  var yeast = document.getElementById('yeast');
   yeast.innerText = "Yeast: " + beer.ingredients.yeast;
-  ingredients.appendChild(malts);
-  ingredients.appendChild(hops);
-  ingredients.appendChild(yeast);
-  return ingredients;
 }
 
 var ingredientLists = function(ingredients){
@@ -72,7 +83,6 @@ var ingredientLists = function(ingredients){
   }
   return selection;
 }
-
 
 
 var createBeerName = function(beer){
@@ -103,12 +113,6 @@ var createPairings = function(beer){
     foodPairings.appendChild(li);
   }
 }
-
-var appendElements = function(ingredients){
-    var list = document.getElementById('ingredients');
-    list.appendChild(ingredients);
-}
-
 
 
 window.addEventListener('load', app);

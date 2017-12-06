@@ -5,22 +5,30 @@
     <link rel="stylesheet" type="text/css" href="main.css">
     <script src='app.js'></script>
     <script src="https://api.punkapi.com/v2/beers"></script>
+    <link href="https://fonts.googleapis.com/css?family=Archivo+Black" rel="stylesheet">
   </head>
   <body>
     <main>
-    <img id="logo" src="http://ledomestiquetours.co.uk/wp-content/uploads/2016/08/Brewdog-Logo-1024x478.jpg">
+      <div class="container">
+        <img id="logo" src="http://ledomestiquetours.co.uk/wp-content/uploads/2016/08/Brewdog-Logo-1024x478.jpg">
+      </div>
       <div class="container">
         <select id="beer-list">
           <option>Select a beer</option>
         </select>
-      <h1 id="titleForBeer"></h1>
-      <h2 id="subtitleForBeer"></h2>
-      <h2 id="labelForFoodPairings"></h2>
-      <ul id="foodPairings"></ul>
-      <h2 id="labelForIngredients"></h2>
-      <ul id="ingredients"></ul>
-      <img id="imageofBeer">
+        <h1 id="titleForBeer"></h1>
+        <h2 id="subtitleForBeer"></h2>
+        <h2 id="labelForFoodPairings"></h2>
+        <ul id="foodPairings"></ul>
+        <h2 id="labelForIngredients"></h2>
+        <ul id="ingredients">
+          <li id="malts"></li>
+          <li id="hops"></li>
+          <li id="yeast"></li>
+        </ul>
+        <img id="imageofBeer">
       </ul>
-    </main>
-  </body>
+    </div>
+  </main>
+</body>
 </html>
