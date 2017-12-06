@@ -18,10 +18,10 @@ var requestComplete = function(){
   populateList(beers);
 }
 var populateList = function(beers){
-  var select = document.getElementById('beer-list');
+  var select = document.getElementById("beer-list");
 
   beers.forEach(function(beer, index){
-    var option = document.createElement('option');
+    var option = document.createElement("option");
     option.classList.add("beer");
     option.innerText = beer.name;
     option.value = index;
@@ -35,7 +35,7 @@ var populateList = function(beers){
 
 var handleSelection = function(beers){
   clearList();
-  var chosen = document.querySelector('select');
+  var chosen = document.querySelector("select");
   var beer = beers[chosen.value];
   var beerName = createBeerName(beer);
   var tag = createTagLine(beer);
@@ -45,13 +45,13 @@ var handleSelection = function(beers){
 }
 
 var clearList = function(){
-  var foodPairings = document.getElementById('foodPairings');
+  var foodPairings = document.getElementById("foodPairings");
   foodPairings.innerHTML = " ";
 }
 
 var createIngredients = function(beer){
   var label = document.getElementById("labelForIngredients");
-  label.innerText = "Ingredients:"
+  label.innerHTML = '<span id="label">Ingredients:</span>';
   createMaltList(beer);
   createHopList(beer);
   createYeastList(beer);
@@ -59,19 +59,19 @@ var createIngredients = function(beer){
 
 var createMaltList = function(beer){
     var maltList = this.ingredientLists(beer.ingredients.malt);
-    var malts = document.getElementById('malts');
-    malts.innerText = "Malts: " + maltList;
+    var malts = document.getElementById("malts");
+    malts.innerHTML = '<span id="label">Malts: </span>' + maltList;
 }
 
 var createHopList = function(beer){
   var hopList = this.ingredientLists(beer.ingredients.hops);
-  var hops = document.getElementById('hops');
-  hops.innerText = "Hops: " + hopList;
+  var hops = document.getElementById("hops");
+  hops.innerHTML = '<span id="label">Hops: </span>' + hopList;
 }
 
 var createYeastList = function(beer){
-  var yeast = document.getElementById('yeast');
-  yeast.innerText = "Yeast: " + beer.ingredients.yeast;
+  var yeast = document.getElementById("yeast");
+  yeast.innerHTML = '<span id="label">Yeast: </span>' + beer.ingredients.yeast;
 }
 
 var ingredientLists = function(ingredients){
@@ -92,23 +92,23 @@ var createBeerName = function(beer){
 }
 
 var createImage = function(beer){
-  var img = document.getElementById('imageofBeer');
+  var img = document.getElementById("imageofBeer");
   img.src = beer.image_url;
 }
 
 
 var createTagLine = function(beer){
-  var tagLine = document.getElementById('subtitleForBeer');
+  var tagLine = document.getElementById("subtitleForBeer");
   tagLine.innerText = beer.tagline;
   return tagLine;
 }
 
 var createPairings = function(beer){
-  var label = document.getElementById('labelForFoodPairings');
+  var label = document.getElementById("labelForFoodPairings");
   label.innerText = "Food Pairings:"
-  var foodPairings = document.getElementById('foodPairings');
+  var foodPairings = document.getElementById("foodPairings");
   for(each of beer.food_pairing){
-    var li = document.createElement('li');
+    var li = document.createElement("li");
     li.innerText = each;
     foodPairings.appendChild(li);
   }

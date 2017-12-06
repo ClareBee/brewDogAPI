@@ -3,6 +3,10 @@ body {
   font-family: 'Archivo Black', sans-serif;
 }
 
+#details {
+  background-color: white;
+}
+
 .container{
   display: flex;
   align-items: center;
