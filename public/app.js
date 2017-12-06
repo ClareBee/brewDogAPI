@@ -60,8 +60,6 @@ var ingredientList = function(beer){
   return ingredients;
 }
 
-
-
 var createBeerName = function(beer){
   var beerName = document.createElement('ul');
   beerName.innerText = beer.name;
@@ -76,27 +74,30 @@ var createImage = function(beer){
 }
 var populateList = function(beers){
   var select = document.getElementById('beer-list');
-  beers.forEach(function(beer, index){
-  var option = document.createElement('option');
-  option.classList.add("beer");
-  option.innerText = beer.name;
-  option.value = index;
-  select.appendChild(option);
-});
-var select = document.querySelector("select");
-select.addEventListener("change", function(){
-  this.handleSelection(beers);
-}.bind(this));
-}
-  // beers.forEach(function(beer, index){
-  //     var beerName = createBeerName(beer);
-  //     var tag = createTagLine(beer);
-  //     var pairings = createPairings(beer);
-  //     var ingredients = createIngredients(beer);
-  //     var image = createImage(beer);
-  //     appendElements(beerName, tag, pairings, ingredients, image);
-  // });
 
+  beers.forEach(function(beer, index){
+    var option = document.createElement('option');
+    option.classList.add("beer");
+    option.innerText = beer.name;
+    option.value = index;
+    select.appendChild(option);
+  });
+  var selected = document.querySelector("select");
+  selected.addEventListener("change", function(){
+    this.handleSelection(beers);
+  }.bind(this));
+}
+
+var handleSelection = function(beers){
+  var chosen = document.querySelector('select');
+  var beer = beers[chosen.value];
+  var beerName = createBeerName(beer);
+  var tag = createTagLine(beer);
+  var pairings = createPairings(beer);
+  var ingredients = createIngredients(beer);
+  var image = createImage(beer);
+  appendElements(beerName, tag, pairings, ingredients, image);
+}
 
 var createTagLine = function(beer){
   var tagLine = document.createElement('li');
@@ -112,7 +113,7 @@ var createPairings = function(beer){
 }
 
 var appendElements = function(beer, tag, pairings, ingredients, image){
-    var list = document.getElementById('beer-list');
+    var list = document.getElementById('beer-details');
     list.appendChild(beer);
     beer.appendChild(tag);
     beer.appendChild(pairings);
