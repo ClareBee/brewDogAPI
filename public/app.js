@@ -37,6 +37,8 @@ var populateList = function(beers){
 
 var handleSelection = function(beers){
   clearList();
+  var dog = document.getElementById('defaultImage');
+  dog.style.display = "none";
   var chosen = document.querySelector("select");
   var beer = beers[chosen.value];
   var beerName = createBeerName(beer);
@@ -53,7 +55,7 @@ var clearList = function(){
 
 var createIngredients = function(beer){
   var label = document.getElementById("labelForIngredients");
-  label.innerHTML = '<span id="label">Ingredients:</span>';
+  label.innerHTML = "Ingredients:";
   createMaltList(beer);
   createHopList(beer);
   createYeastList(beer);
@@ -112,6 +114,7 @@ var createPairings = function(beer){
   for(each of beer.food_pairing){
     var li = document.createElement("li");
     li.innerText = each;
+    li.classList = "food";
     foodPairings.appendChild(li);
   }
 }
