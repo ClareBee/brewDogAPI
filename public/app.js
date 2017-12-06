@@ -17,6 +17,31 @@ var requestComplete = function(){
   var beers = JSON.parse(jsonString);
   populateList(beers);
 }
+var populateList = function(beers){
+  var select = document.getElementById('beer-list');
+
+  beers.forEach(function(beer, index){
+    var option = document.createElement('option');
+    option.classList.add("beer");
+    option.innerText = beer.name;
+    option.value = index;
+    select.appendChild(option);
+  });
+  var selected = document.querySelector("select");
+  selected.addEventListener("change", function(){
+    this.handleSelection(beers);
+  }.bind(this));
+}
+var handleSelection = function(beers){
+  var chosen = document.querySelector('select');
+  var beer = beers[chosen.value];
+  var beerName = createBeerName(beer);
+  var tag = createTagLine(beer);
+  var pairings = createPairings(beer);
+  var ingredients = createIngredients(beer);
+  var image = createImage(beer);
+  appendElements(beerName, tag, pairings, ingredients, image);
+}
 
 var createIngredients = function(beer){
   var ingredients = document.createElement('ul');
@@ -61,46 +86,20 @@ var ingredientList = function(beer){
 }
 
 var createBeerName = function(beer){
-  var beerName = document.createElement('ul');
+  var beerName = document.getElementById("titleForBeer");
   beerName.innerText = beer.name;
-  beerName.innerText;
   return beerName;
 }
 
 var createImage = function(beer){
-  var img = document.createElement('img');
+  var img = document.getElementById('imageofBeer');
   img.src = beer.image_url;
   return img;
 }
-var populateList = function(beers){
-  var select = document.getElementById('beer-list');
 
-  beers.forEach(function(beer, index){
-    var option = document.createElement('option');
-    option.classList.add("beer");
-    option.innerText = beer.name;
-    option.value = index;
-    select.appendChild(option);
-  });
-  var selected = document.querySelector("select");
-  selected.addEventListener("change", function(){
-    this.handleSelection(beers);
-  }.bind(this));
-}
-
-var handleSelection = function(beers){
-  var chosen = document.querySelector('select');
-  var beer = beers[chosen.value];
-  var beerName = createBeerName(beer);
-  var tag = createTagLine(beer);
-  var pairings = createPairings(beer);
-  var ingredients = createIngredients(beer);
-  var image = createImage(beer);
-  appendElements(beerName, tag, pairings, ingredients, image);
-}
 
 var createTagLine = function(beer){
-  var tagLine = document.createElement('li');
+  var tagLine = document.getElementById('subtitleForBeer');
   tagLine.innerText = beer.tagline;
   return tagLine;
 }
