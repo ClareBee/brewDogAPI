@@ -118,8 +118,8 @@ figure:hover {
 
 .modal {
     display: none; /* default hidden */
-    position: static; /* static doesn't popup  anywhere else whereas fixed and absolute do */
-    z-index: 2; /* Sit on top */
+    position: inherit; /* static doesn't popup  anywhere else whereas fixed and absolute do */
+    z-index: 1; /* Sit on top */
     left: 0;
     top: 0;
     width: 170px;

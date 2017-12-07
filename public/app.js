@@ -107,7 +107,7 @@ var createImage = function(beer){
 }
 
 var popup = function(beer){
-  var div = document.getElementById("partTwo");
+  var img = document.getElementById("imageofBeer");
   var popup = document.getElementById("popUp");
   var btn = document.getElementById("popupButton");
   var span = document.getElementsByClassName("close")[0];
@@ -118,7 +118,7 @@ var popup = function(beer){
     var content = document.getElementById("popupContent");
     content.innerText = beer.description;
     content.style.fontSize = "12px";
-  }.bind(div);
+  }.bind(img);
   span.onclick = function() {
     popup.style.display = "none";
   };
