@@ -57,7 +57,7 @@ li {
 
 .details {
   width: 95%;
-  height: 900px;
+  height: 100%;
   background-color: white;
   display: flex;
   flex-direction: row;
@@ -69,10 +69,6 @@ li {
 }
 .beers{
   padding: 5px;
-}
-
-button {
-  visibility: hidden;
 }
 
 #beer-list {
@@ -90,18 +86,10 @@ button {
   padding: 10px;
 }
 
-img.title {
-  font-size: 30px;
-}
-button {
-  width: 100px;
-}
-
 /*images */
 #imageofBeer {
   width: 150px;
 }
-
 
 #logo {
   width: 75%;
@@ -135,4 +123,15 @@ button {
     padding: 20px;
     border: 1px solid black;
     width: 80%;
+}
+
+#popupContent {
+  padding: 5px;
+}
+
+figcaption {
+  border-radius: 10px;
+  padding: 10px;
+  margin-top: 20px;
+  min-width: 150px;
 }

@@ -99,6 +99,7 @@ var createImage = function(beer){
   var img = document.getElementById("imageofBeer");
   var figcap = document.getElementById("figcaption");
   figcap.innerText = "Hover over image for details";
+  figcap.style.border = "2px solid #00afdb";
   img.src = beer.image_url;
   popup(beer);
 }
