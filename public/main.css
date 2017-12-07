@@ -101,9 +101,7 @@ button {
 #imageofBeer {
   width: 150px;
 }
-figure:hover {
-  transform: scale(2);
-}
+
 
 #logo {
   width: 75%;
@@ -116,46 +114,25 @@ figure:hover {
   width: 80px;
 }
 
-.modal {
+#popUp {
     display: none; /* default hidden */
-    position: inherit; /* static doesn't popup  anywhere else whereas fixed and absolute do */
+    position: fixed; /* static doesn't popup  anywhere else whereas fixed and absolute do */
     z-index: 1; /* Sit on top */
-    left: 0;
-    top: 0;
-    width: 170px;
-    height: 500px;
-    overflow: auto; /* Enable scroll if needed */
+    left: 300px;
+    top: 100px;
+    width: 700px;
+    overflow: scroll; /* Enable scroll if needed */
     background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    background-color: rgba(255,255,255,0.4);
+    border: 5px solid #FF5181;
+    border-radius: 10px;
 }
 
-:not(.modal:hover){
-  display: none;
-}
-
-:not(.modal:focus){
-  display: none;
-}
 /* popup details */
 .modal-content {
     background-color: white;
-    margin: 50% auto;
+    margin: 5% auto;
     padding: 20px;
     border: 1px solid black;
     width: 80%;
-}
-
-
-/* popup Close Button */
-.close {
-    color: black;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-}
-
-.close:hover, .close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
 }

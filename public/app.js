@@ -97,30 +97,27 @@ var createBeerName = function(beer){
 
 var createImage = function(beer){
   var img = document.getElementById("imageofBeer");
-  var button = document.getElementById("popupButton");
-  button.innerText = "Show details";
-  button.style.visibility = "visible";
-  button.style.backgroundColor = "#00afdb";
+  var figcap = document.getElementById("figcaption");
+  figcap.innerText = "Hover over image for details";
   img.src = beer.image_url;
-  img.title = beer.description;
   popup(beer);
 }
-
+//try refactoring with mouseover
 var popup = function(beer){
   var img = document.getElementById("imageofBeer");
   var popup = document.getElementById("popUp");
-  var btn = document.getElementById("popupButton");
-  var span = document.getElementsByClassName("close")[0];
-  btn.addEventListener('click', onclick);
-  span.addEventListener('click', onclick);
-  btn.onclick = function() {
+  img.onmouseover = function() {
     popup.style.display = "block";
+    img.style.transform = "scale(1.4)";
     var content = document.getElementById("popupContent");
     content.innerText = beer.description;
-    content.style.fontSize = "12px";
-  }.bind(img);
-  span.onclick = function() {
+    content.style.fontSize = "25px";
+    content.style.color = "black";
+    content.style.padding = "10px";
+  };
+  img.onmouseout = function() {
     popup.style.display = "none";
+    img.style.transform = "scale(1.0)";
   };
 }
 
