@@ -1,3 +1,5 @@
+![image](BrewDog.png)
+
 # brewDogAPI
 
 # Learning Objectives
